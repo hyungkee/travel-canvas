@@ -10,6 +10,7 @@ import android.view.MenuItem;
 import android.widget.ImageView;
 import android.widget.Toast;
 
+import com.bumptech.glide.Glide;
 import com.google.android.gms.maps.CameraUpdateFactory;
 import com.google.android.gms.maps.GoogleMap;
 import com.google.android.gms.maps.MapFragment;
@@ -40,7 +41,7 @@ public class TravelActivity extends AppCompatActivity implements OnMapReadyCallb
         ctl.setTitle(travel.getName());
 
         ImageView cover = (ImageView)findViewById(R.id.travel_image);
-        cover.setImageResource(travel.getThumbnail());
+        Glide.with(getApplicationContext()).load(travel.getThumbnail()).into(cover);
 
         MapFragment mapFragment = (MapFragment) getFragmentManager().findFragmentById(R.id.map);
         mapFragment.getMapAsync(this);
@@ -50,13 +51,9 @@ public class TravelActivity extends AppCompatActivity implements OnMapReadyCallb
     public void onMapReady(GoogleMap map) {
         googleMap = map;
 
-        Toast.makeText(getApplicationContext(), "ready", Toast.LENGTH_SHORT).show();
-
         googleMap.addMarker(new MarkerOptions().position(SEOUL).title("Seoul"));
         googleMap.moveCamera(CameraUpdateFactory.newLatLng(SEOUL));
         googleMap.animateCamera(CameraUpdateFactory.zoomTo(10));
-
-        Toast.makeText(getApplicationContext(), "done", Toast.LENGTH_SHORT).show();
     }
 
     @Override
