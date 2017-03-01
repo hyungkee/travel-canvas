@@ -1,5 +1,6 @@
 package app.heuristy.dev.travelcanvas;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.support.design.widget.FloatingActionButton;
 import android.support.design.widget.Snackbar;
@@ -17,6 +18,8 @@ import android.view.MenuItem;
 import java.util.ArrayList;
 import java.util.List;
 
+import static java.security.AccessController.getContext;
+
 public class MainActivity extends AppCompatActivity {
 
     private Toolbar toolbar;
@@ -26,6 +29,8 @@ public class MainActivity extends AppCompatActivity {
                             R.drawable.ic_tab_2,
                             R.drawable.ic_tab_3
     };
+
+    private FloatingActionButton travel_fab;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -44,6 +49,15 @@ public class MainActivity extends AppCompatActivity {
         tabLayout = (TabLayout)findViewById(R.id.tabs);
         tabLayout.setupWithViewPager(viewPager);
         setupTabIcons(tabLayout);
+
+        travel_fab = (FloatingActionButton)findViewById(R.id.new_travel_fab);
+        travel_fab.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent intent = new Intent(getApplicationContext(), AddTravelActivity.class);
+                startActivity(intent);
+            }
+        });
     }
 
     private void setupTabIcons(TabLayout tabLayout){
@@ -58,6 +72,25 @@ public class MainActivity extends AppCompatActivity {
         adapter.addFragment(new TwoFragment(), "My Travel");
         adapter.addFragment(new ThreeFragment(), "Settings");
         viewPager.setAdapter(adapter);
+
+        viewPager.addOnPageChangeListener(new ViewPager.OnPageChangeListener(){
+            @Override
+            public void onPageScrolled(int position, float positionOffset, int positionOffsetPixels) {
+
+            }
+
+            @Override
+            public void onPageSelected(int position) {
+                if(position == 1)   travel_fab.show();
+                else                travel_fab.hide();
+
+            }
+
+            @Override
+            public void onPageScrollStateChanged(int state) {
+
+            }
+        });
     }
 
     class ViewPagerAdapter extends FragmentPagerAdapter {

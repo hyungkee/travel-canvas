@@ -12,4 +12,9 @@
     tools:context="app.heuristy.dev.travelcanvas.AddTravelActivity"
     tools:showIn="@layout/activity_add_travel">
 
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="이름, 기간, 동반자 목록 -> 자세한 일정 등록을 위한 화면으로. 이미 로드된 fragment간 이동으로?"/>
+
 </RelativeLayout>

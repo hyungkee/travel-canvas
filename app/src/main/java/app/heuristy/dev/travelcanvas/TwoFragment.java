@@ -60,15 +60,11 @@ public class TwoFragment extends Fragment{
                         // do whatever
 
                         Travel travel = adapter.getTravel(position);
-                        if(travel.getId() >= 0){
-                            Intent intent = new Intent(getContext(), TravelActivity.class);
-                            intent.putExtra("travel_image_src", travel);
-                            ActivityOptionsCompat options = ActivityOptionsCompat.makeSceneTransitionAnimation(getActivity(), (View)view.findViewById(R.id.thumbnail), "travel_image");
-                            startActivity(intent, options.toBundle());
-                        }else{
-                            Intent intent = new Intent(getContext(), AddTravelActivity.class);
-                            startActivity(intent);
-                        }
+
+                        Intent intent = new Intent(getContext(), TravelActivity.class);
+                        intent.putExtra("travel_image_src", travel);
+                        ActivityOptionsCompat options = ActivityOptionsCompat.makeSceneTransitionAnimation(getActivity(), (View)view.findViewById(R.id.thumbnail), "travel_image");
+                        startActivity(intent, options.toBundle());
 
                     }
 
@@ -99,9 +95,6 @@ public class TwoFragment extends Fragment{
         travelList.add(a);
 
         a = new Travel("America", "america detail", covers[2], 3);
-        travelList.add(a);
-
-        a = new Travel("Plan a trip!", "", R.drawable.ic_add_center, -1);
         travelList.add(a);
     }
 
