@@ -8,15 +8,17 @@ import java.io.Serializable;
 public class Travel implements Serializable{
     private String name, detail;
     private int thumbnail;
+    private int id;
 
     public Travel(){
-
+        this.id = -1; // for add card
     }
 
-    public Travel(String name, String detail, int thumbnail){
+    public Travel(String name, String detail, int thumbnail, int id){
         this.name = name;
         this.detail = detail;
         this.thumbnail = thumbnail;
+        this.id = id;
     }
 
     public String getName() {
@@ -41,5 +43,13 @@ public class Travel implements Serializable{
 
     public void setThumbnail(int thumbnail) {
         this.thumbnail = thumbnail;
+    }
+
+    public int getId() {
+        return id;
+    }
+
+    public void setId(int id) {
+        this.id = id;
     }
 }

@@ -2,6 +2,10 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     package="app.heuristy.dev.travelcanvas">
 
+    <uses-permission android:name="android.permission.ACCESS_COARSE_LOCATION" />
+    <uses-permission android:name="android.permission.ACCESS_FINE_LOCATION" />
+
+
     <application
         android:allowBackup="true"
         android:icon="@mipmap/ic_launcher"
@@ -17,7 +21,16 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <activity android:name=".TravelActivity"></activity>
+        <activity android:name=".TravelActivity" />
+        <activity
+            android:name=".AddTravelActivity"
+            android:label="@string/title_activity_add_travel"
+            android:theme="@style/MyMaterialTheme"></activity>
+
+        <!-- 개발용 KEY -->
+        <meta-data
+            android:name="com.google.android.geo.API_KEY"
+            android:value="AIzaSyD_35f_8Z9-p7DdKOyGQOlKLHF99Rznrqs" />
     </application>
 
 </manifest>
