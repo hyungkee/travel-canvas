@@ -1,4 +1,4 @@
-package app.heuristy.dev.travelcanvas;
+package app.heuristy.dev.travelcanvas.controller.activity;
 
 import android.content.Intent;
 import android.support.design.widget.CollapsingToolbarLayout;
@@ -8,7 +8,6 @@ import android.support.v7.widget.Toolbar;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.widget.ImageView;
-import android.widget.Toast;
 
 import com.bumptech.glide.Glide;
 import com.google.android.gms.maps.CameraUpdateFactory;
@@ -16,8 +15,10 @@ import com.google.android.gms.maps.GoogleMap;
 import com.google.android.gms.maps.MapFragment;
 import com.google.android.gms.maps.OnMapReadyCallback;
 import com.google.android.gms.maps.model.LatLng;
-import com.google.android.gms.maps.model.Marker;
 import com.google.android.gms.maps.model.MarkerOptions;
+
+import app.heuristy.dev.travelcanvas.R;
+import app.heuristy.dev.travelcanvas.model.Travel;
 
 public class TravelActivity extends AppCompatActivity implements OnMapReadyCallback {
 

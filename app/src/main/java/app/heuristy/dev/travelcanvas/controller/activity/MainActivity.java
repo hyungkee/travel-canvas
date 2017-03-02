@@ -1,9 +1,8 @@
-package app.heuristy.dev.travelcanvas;
+package app.heuristy.dev.travelcanvas.controller.activity;
 
 import android.content.Intent;
 import android.os.Bundle;
 import android.support.design.widget.FloatingActionButton;
-import android.support.design.widget.Snackbar;
 import android.support.design.widget.TabLayout;
 import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentManager;
@@ -18,7 +17,10 @@ import android.view.MenuItem;
 import java.util.ArrayList;
 import java.util.List;
 
-import static java.security.AccessController.getContext;
+import app.heuristy.dev.travelcanvas.controller.fragment.MainFrag1;
+import app.heuristy.dev.travelcanvas.controller.fragment.MainFrag2;
+import app.heuristy.dev.travelcanvas.controller.fragment.MainFrag3;
+import app.heuristy.dev.travelcanvas.R;
 
 public class MainActivity extends AppCompatActivity {
 
@@ -48,7 +50,7 @@ public class MainActivity extends AppCompatActivity {
 
         tabLayout = (TabLayout)findViewById(R.id.tabs);
         tabLayout.setupWithViewPager(viewPager);
-        setupTabIcons(tabLayout);
+//        setupTabIcons(tabLayout);
 
         travel_fab = (FloatingActionButton)findViewById(R.id.new_travel_fab);
         travel_fab.setOnClickListener(new View.OnClickListener() {
@@ -67,10 +69,12 @@ public class MainActivity extends AppCompatActivity {
     }
 
     private void setupViewPager(ViewPager viewPager){
+        viewPager.setOffscreenPageLimit(10);
+
         ViewPagerAdapter adapter = new ViewPagerAdapter(getSupportFragmentManager());
-        adapter.addFragment(new OneFragment(), "News Feed");
-        adapter.addFragment(new TwoFragment(), "My Travel");
-        adapter.addFragment(new ThreeFragment(), "Settings");
+        adapter.addFragment(new MainFrag1(), "News Feed");
+        adapter.addFragment(new MainFrag2(), "My Travel");
+        adapter.addFragment(new MainFrag3(), "Settings");
         viewPager.setAdapter(adapter);
 
         viewPager.addOnPageChangeListener(new ViewPager.OnPageChangeListener(){

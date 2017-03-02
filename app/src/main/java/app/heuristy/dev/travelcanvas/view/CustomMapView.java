@@ -1,4 +1,4 @@
-package app.heuristy.dev.travelcanvas;
+package app.heuristy.dev.travelcanvas.view;
 
 import android.content.Context;
 import android.support.annotation.Nullable;

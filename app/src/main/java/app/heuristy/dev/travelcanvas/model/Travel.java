@@ -1,4 +1,4 @@
-package app.heuristy.dev.travelcanvas;
+package app.heuristy.dev.travelcanvas.model;
 
 import java.io.Serializable;
 
@@ -11,7 +11,6 @@ public class Travel implements Serializable{
     private int id;
 
     public Travel(){
-        this.id = -1; // for add card
     }
 
     public Travel(String name, String detail, int thumbnail, int id){
