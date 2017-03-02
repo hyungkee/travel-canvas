@@ -32,7 +32,7 @@ public class AddTravelFrag1 extends Fragment{
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
         // Inflate the layout for this fragment
-        View view = inflater.inflate(R.layout.add_travel_frag_1, container, false);
+        View view = inflater.inflate(R.layout.frag_add_travel_1, container, false);
         Button nextBtn = (Button)view.findViewById(R.id.next_btn);
         nextBtn.setOnClickListener(new View.OnClickListener() {
             @Override

@@ -44,7 +44,7 @@ public class TravelsAdapter extends RecyclerView.Adapter<TravelsAdapter.MyViewHo
 
     @Override
     public MyViewHolder onCreateViewHolder(ViewGroup parent, int viewType) {
-        View itemView = LayoutInflater.from(parent.getContext()).inflate(R.layout.travel_card, parent, false);
+        View itemView = LayoutInflater.from(parent.getContext()).inflate(R.layout.card_travel, parent, false);
         return new MyViewHolder(itemView);
     }
 

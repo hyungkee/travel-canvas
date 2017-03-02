@@ -34,7 +34,7 @@ public class AddTravelFrag3 extends Fragment{
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
         // Inflate the layout for this fragment
-        View view = inflater.inflate(R.layout.add_travel_frag_3, container, false);
+        View view = inflater.inflate(R.layout.frag_add_travel_3, container, false);
 
         Button prevBtn = (Button)view.findViewById(R.id.prev_btn);
         prevBtn.setOnClickListener(new View.OnClickListener() {

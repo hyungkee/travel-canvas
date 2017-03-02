@@ -9,16 +9,16 @@ import java.io.Serializable;
 public class Person implements Serializable{
     public int id;
     public String name;
-    public String phone;
+    public String number;
 
     public Person(){
 
     }
 
-    public Person(int id, String name, String phone) {
+    public Person(int id, String name, String number) {
         this.id = id;
         this.name = name;
-        this.phone = phone;
+        this.number = number;
     }
 
     public int getId() {
@@ -37,11 +37,11 @@ public class Person implements Serializable{
         this.name = name;
     }
 
-    public String getPhone() {
-        return phone;
+    public String getNumber() {
+        return number;
     }
 
-    public void setPhone(String phone) {
-        this.phone = phone;
+    public void setNumber(String number) {
+        this.number = number;
     }
 }

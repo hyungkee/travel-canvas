@@ -8,18 +8,13 @@
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:layout_gravity="center"
-        android:layout_marginBottom="8dp"
-        android:layout_marginLeft="8dp"
-        android:layout_marginRight="8dp"
-        android:layout_marginTop="5dp"
-        android:elevation="6dp"
-        card_view:cardCornerRadius="2dp">
+        card_view:cardCornerRadius="0dp">
 
         <RelativeLayout
             android:paddingLeft="10dp"
             android:paddingRight="10dp"
             android:paddingBottom="10dp"
-            android:paddingTop="30dp"
+            android:paddingTop="50dp"
             android:layout_width="match_parent"
             android:layout_height="match_parent">
 
@@ -29,6 +24,14 @@
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
                 android:orientation="vertical">
+
+                <!--ImageView
+                    android:layout_gravity="center_horizontal"
+                    android:layout_width="150dp"
+                    android:layout_height="150dp"
+                    android:layout_margin="10dp"
+                    android:scaleType="centerCrop"
+                    android:src="@drawable/travel2"/-->
 
                 <LinearLayout
                     android:layout_width="match_parent"
@@ -142,6 +145,7 @@
                                 android:layout_height="wrap_content"
                                 android:layout_weight="1"
                                 android:layout_gravity="center_vertical"
+                                android:textSize="20sp"
                                 android:text="박형기(010-4788-4377)"/>
 
                             <ImageView
