@@ -1,6 +1,10 @@
 package app.heuristy.dev.travelcanvas.controller.adapter;
 
+import android.app.Activity;
 import android.content.Context;
+import android.content.Intent;
+import android.os.Bundle;
+import android.support.v7.app.AppCompatActivity;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -8,6 +12,7 @@ import android.widget.BaseAdapter;
 import android.widget.Filter;
 import android.widget.Filterable;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import org.w3c.dom.Text;
 
@@ -23,14 +28,16 @@ import app.heuristy.dev.travelcanvas.model.Person;
 
 public class SearchPersonAdapter extends BaseAdapter implements Filterable {
 
+    Activity mActivity;
     List<Person> mData;
     List<Person> mStringFilterList;
     ValueFilter valueFilter;
     private LayoutInflater inflater;
 
-    public SearchPersonAdapter(List cancel_type) {
+    public SearchPersonAdapter(Activity activity, List cancel_type) {
         mData=cancel_type;
         mStringFilterList = cancel_type;
+        mActivity = activity;
     }
 
     @Override
@@ -52,7 +59,7 @@ public class SearchPersonAdapter extends BaseAdapter implements Filterable {
     public View getView(int position, View convertView, final ViewGroup parent) {
 
         PersonHolder holder = null;
-        Person p = mData.get(position);
+        final Person p = mData.get(position);
 
         if (inflater == null) {
             inflater = (LayoutInflater) parent.getContext()
@@ -61,7 +68,7 @@ public class SearchPersonAdapter extends BaseAdapter implements Filterable {
 
         if(convertView != null){
             holder = (PersonHolder)convertView.getTag();
-            if((holder.id > 0 && p.id < 0) || (holder.id < 0 && p.id > 0))
+            if((holder.person.getId() > 0 && p.getId() < 0) || (holder.person.getId() < 0 && p.getId() > 0))
                 convertView = null; // 이번 뷰는 버리고 새로 만든다.
         }
 
@@ -70,23 +77,35 @@ public class SearchPersonAdapter extends BaseAdapter implements Filterable {
                 convertView = inflater.inflate(R.layout.list_search_person_divider, parent, false);
                 holder = new PersonHolder();
                 holder.name = (TextView)convertView.findViewById(R.id.name);
-                holder.id = p.id;
+                holder.person = p;
                 convertView.setTag(holder);
             }else{ // person data
                 convertView = inflater.inflate(R.layout.list_search_person, parent, false);
                 holder = new PersonHolder();
                 holder.name = (TextView)convertView.findViewById(R.id.name);
                 holder.number = (TextView)convertView.findViewById(R.id.number);
-                holder.id = p.id;
+                holder.person = p;
                 convertView.setTag(holder);
             }
         }
 
         if(p.id < 0){ // divider
             holder.name.setText(p.getName());
+            convertView.setOnClickListener(null);
         }else{ // person data
             holder.name.setText(p.getName());
             holder.number.setText(p.getNumber());
+            convertView.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View view) {
+                    Intent resultIntent = new Intent();
+                    Bundle bundle = new Bundle();
+                    bundle.putSerializable("person", new Person(p));
+                    resultIntent.putExtras(bundle);
+                    mActivity.setResult(Activity.RESULT_OK, resultIntent);
+                    mActivity.finish();
+                }
+            });
         }
 
         return convertView;
@@ -137,9 +156,9 @@ public class SearchPersonAdapter extends BaseAdapter implements Filterable {
     }
 
     private class PersonHolder{
-        int id;
         TextView name;
         TextView number;
+        Person person;
     }
 
 }

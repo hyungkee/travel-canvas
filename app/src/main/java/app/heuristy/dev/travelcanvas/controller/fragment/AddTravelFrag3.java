@@ -6,14 +6,22 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
+import android.widget.RelativeLayout;
+import android.widget.SeekBar;
+import android.widget.Toast;
+
+import java.util.ArrayList;
+import java.util.List;
 
 import app.heuristy.dev.travelcanvas.view.NonSwipeableViewPager;
 import app.heuristy.dev.travelcanvas.R;
+import app.heuristy.dev.travelcanvas.view.VisualScheduleView;
 
 
 public class AddTravelFrag3 extends Fragment{
 
     private NonSwipeableViewPager viewPager;
+    private VisualScheduleView visualScheduleView;
 
     public AddTravelFrag3() {
         // Required empty public constructor
@@ -52,7 +60,17 @@ public class AddTravelFrag3 extends Fragment{
                     getActivity().onBackPressed();
             }
         });
+
+        visualScheduleView = (VisualScheduleView)view.findViewById(R.id.visual_schedule_view);
+        SeekBar seekBar = (SeekBar)visualScheduleView.findViewById(R.id.scale_bar);
+        visualScheduleView.setSeekBar(seekBar);
+
+        setupVisualScheduleView();
+
         return view;
+    }
+
+    void setupVisualScheduleView(){
     }
 
     boolean checkValidation(){

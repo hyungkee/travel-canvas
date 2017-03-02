@@ -103,7 +103,7 @@ public class SearchPersonActivity extends AppCompatActivity {
         searchList.add(new Person(7, "이재성", "010-0000-0000"));
         searchList.add(new Person(8, "강원준", "010-0000-0000"));
 
-        searchPersonAdapter = new SearchPersonAdapter(searchList);
+        searchPersonAdapter = new SearchPersonAdapter(this, searchList);
         searchListView.setAdapter(searchPersonAdapter);
         searchListView.setTextFilterEnabled(true);
 
@@ -131,7 +131,6 @@ public class SearchPersonActivity extends AppCompatActivity {
                 return false;
             }
         });
-
     }
 
 }

@@ -15,6 +15,14 @@ public class Person implements Serializable{
 
     }
 
+    public Person(Person p){
+        this.id = p.id;
+        this.name = p.name;
+        this.number = p.number;
+    }
+
+
+
     public Person(int id, String name, String number) {
         this.id = id;
         this.name = name;
@@ -43,5 +51,9 @@ public class Person implements Serializable{
 
     public void setNumber(String number) {
         this.number = number;
+    }
+
+    public String toString(){
+        return name + '(' + number + ')';
     }
 }

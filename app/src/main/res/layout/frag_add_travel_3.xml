@@ -7,44 +7,58 @@
         android:id="@+id/card_view"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:layout_gravity="center"
-        card_view:cardCornerRadius="0dp">
+        android:layout_marginTop="45dp"
+        android:layout_marginBottom="5dp"
+        android:layout_marginLeft="5dp"
+        android:layout_marginRight="5dp"
+        android:elevation="5dp"
+        card_view:cardCornerRadius="3dp">
 
         <RelativeLayout
             android:paddingLeft="10dp"
             android:paddingRight="10dp"
-            android:paddingBottom="10dp"
-            android:paddingTop="30dp"
+            android:paddingBottom="5dp"
+            android:paddingTop="10dp"
             android:layout_width="match_parent"
             android:layout_height="match_parent">
-
             <LinearLayout
                 android:id="@+id/linear_add"
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
-                android:orientation="vertical">
+                android:orientation="vertical"
+                android:layout_above="@+id/linear_btns">
 
-                <TextView
+                <app.heuristy.dev.travelcanvas.view.VisualScheduleView
+                    android:background="#EEE"
+                    android:id="@+id/visual_schedule_view"
                     android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:textSize="20sp"
-                    android:text="TextView1"/>
+                    android:layout_height="match_parent"
+                    android:layout_marginBottom="10dp">
 
-                <TextView
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:textSize="20sp"
-                    android:text="TextView2"/>
+                    <app.heuristy.dev.travelcanvas.view.DraggableView
+                        android:layout_width="50dp"
+                        android:layout_height="50dp"
+                        android:background="#F00"/>
 
-                <TextView
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:textSize="20sp"
-                    android:text="TextView3"/>
+                    <app.heuristy.dev.travelcanvas.view.DraggableView
+                        android:layout_width="50dp"
+                        android:layout_height="50dp"
+                        android:background="#FF0"/>
+
+                    <android.support.v7.widget.AppCompatSeekBar
+                        android:id="@+id/scale_bar"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_alignParentBottom="true"
+                        android:paddingBottom="5dp"
+                        android:progress="0" />
+
+                </app.heuristy.dev.travelcanvas.view.VisualScheduleView>
 
             </LinearLayout>
 
             <LinearLayout
+                android:id="@+id/linear_btns"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:orientation="horizontal"
