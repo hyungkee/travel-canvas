@@ -6,22 +6,19 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
-import android.widget.RelativeLayout;
 import android.widget.SeekBar;
-import android.widget.Toast;
-
-import java.util.ArrayList;
-import java.util.List;
 
 import app.heuristy.dev.travelcanvas.view.NonSwipeableViewPager;
 import app.heuristy.dev.travelcanvas.R;
-import app.heuristy.dev.travelcanvas.view.VisualScheduleView;
+import app.heuristy.dev.travelcanvas.view.VSChildDrgView;
+import app.heuristy.dev.travelcanvas.view.VSChildView;
+import app.heuristy.dev.travelcanvas.view.VSView;
 
 
 public class AddTravelFrag3 extends Fragment{
 
     private NonSwipeableViewPager viewPager;
-    private VisualScheduleView visualScheduleView;
+    private VSView vsView;
 
     public AddTravelFrag3() {
         // Required empty public constructor
@@ -61,16 +58,36 @@ public class AddTravelFrag3 extends Fragment{
             }
         });
 
-        visualScheduleView = (VisualScheduleView)view.findViewById(R.id.visual_schedule_view);
-        SeekBar seekBar = (SeekBar)visualScheduleView.findViewById(R.id.scale_bar);
-        visualScheduleView.setSeekBar(seekBar);
+        vsView = (VSView)view.findViewById(R.id.visual_schedule_view);
+        SeekBar seekBar = (SeekBar) view.findViewById(R.id.scale_bar);
+        vsView.setSeekBar(seekBar);
 
-        setupVisualScheduleView();
+        setupVisualScheduleView(view);
 
         return view;
     }
 
-    void setupVisualScheduleView(){
+    void setupVisualScheduleView(View parent){
+        vsView.setWorldWidthMax(6000);
+        vsView.setWorldHeightMax(6000);
+
+        // set Background
+        VSChildView vsBack = (VSChildView)parent.findViewById(R.id.vsc_background);
+        vsBack.regVsView(vsView);
+        vsBack.setVscWidth(vsView.getWorldWidthMax());
+        vsBack.setVscHeight(vsView.getWorldHeightMax());
+        vsBack.setTag("back");
+
+        // set Views
+        VSChildDrgView vsc1 = (VSChildDrgView)parent.findViewById(R.id.vsc_1);
+        VSChildDrgView vsc2 = (VSChildDrgView)parent.findViewById(R.id.vsc_2);
+        vsc1.regVsView(vsView);
+        vsc2.regVsView(vsView);
+        vsc1.setVscX(700);
+        vsc1.setVscY(700);
+
+        // TODO : View를 VSView에 붙이는 코드가 필요.
+
     }
 
     boolean checkValidation(){
