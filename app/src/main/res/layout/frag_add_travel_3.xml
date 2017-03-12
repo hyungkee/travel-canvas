@@ -28,14 +28,14 @@
                 android:orientation="vertical"
                 android:layout_above="@+id/linear_btns">
 
-                <app.heuristy.dev.travelcanvas.view.VSView
+                <app.heuristy.dev.vsview.VSView
                     android:background="#EEE"
                     android:id="@+id/visual_schedule_view"
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
                     android:layout_marginBottom="10dp">
 
-                    <app.heuristy.dev.travelcanvas.view.VSChildView
+                    <app.heuristy.dev.vsview.VSChildView
                         android:id="@+id/vsc_background"
                         android:layout_width="300dp"
                         android:layout_height="300dp"
@@ -46,15 +46,15 @@
                             android:layout_height="match_parent"
                             android:scaleType="centerCrop"
                             android:src="@drawable/check_back_fill" /-->
-                    </app.heuristy.dev.travelcanvas.view.VSChildView>
+                    </app.heuristy.dev.vsview.VSChildView>
 
-                    <app.heuristy.dev.travelcanvas.view.VSChildDrgView
+                    <app.heuristy.dev.vsview.VSChildDrgView
                         android:id="@+id/vsc_1"
                         android:layout_width="50dp"
                         android:layout_height="50dp"
                         android:background="#F00"/>
 
-                    <app.heuristy.dev.travelcanvas.view.VSChildDrgView
+                    <app.heuristy.dev.vsview.VSChildDrgView
                         android:id="@+id/vsc_2"
                         android:layout_width="50dp"
                         android:layout_height="50dp"
@@ -68,7 +68,7 @@
                         android:paddingBottom="5dp"
                         android:progress="0" />
 
-                </app.heuristy.dev.travelcanvas.view.VSView>
+                </app.heuristy.dev.vsview.VSView>
 
             </LinearLayout>
 

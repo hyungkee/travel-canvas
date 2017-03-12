@@ -10,9 +10,9 @@ import android.widget.SeekBar;
 
 import app.heuristy.dev.travelcanvas.view.NonSwipeableViewPager;
 import app.heuristy.dev.travelcanvas.R;
-import app.heuristy.dev.travelcanvas.view.VSChildDrgView;
-import app.heuristy.dev.travelcanvas.view.VSChildView;
-import app.heuristy.dev.travelcanvas.view.VSView;
+import app.heuristy.dev.vsview.VSChildDrgView;
+import app.heuristy.dev.vsview.VSChildView;
+import app.heuristy.dev.vsview.VSView;
 
 
 public class AddTravelFrag3 extends Fragment{
@@ -80,11 +80,13 @@ public class AddTravelFrag3 extends Fragment{
 
         // set Views
         VSChildDrgView vsc1 = (VSChildDrgView)parent.findViewById(R.id.vsc_1);
-        VSChildDrgView vsc2 = (VSChildDrgView)parent.findViewById(R.id.vsc_2);
         vsc1.regVsView(vsView);
-        vsc2.regVsView(vsView);
         vsc1.setVscX(700);
         vsc1.setVscY(700);
+
+        VSChildDrgView vsc2 = (VSChildDrgView)parent.findViewById(R.id.vsc_2);
+        vsc2.regVsView(vsView);
+        vsc2.setLayoutType(VSChildView.VSCHILD_LAYOUT_FIXED);
 
         // TODO : View를 VSView에 붙이는 코드가 필요.
 
